@@ -17,15 +17,18 @@ public class D387SampleCodeApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(D387SampleCodeApplication.class, args);
-		Properties properties = new Properties();
-		try {
-			InputStream stream = new ClassPathResource("translation_fr_CA.properties").getInputStream();
-			properties.load(stream);
-			System.out.println(properties.getProperty("welcome"));
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+//		Properties properties = new Properties();
+//		try {
+//			InputStream stream = new ClassPathResource("translation_fr_CA.properties").getInputStream();
+//			properties.load(stream);
+//			System.out.println(properties.getProperty("welcome"));
+//		}
+//		catch (Exception e) {
+//			e.printStackTrace();
+//		}
+
+		MultiThread language = new MultiThread();
+		language.start();
 	}
 
 }
