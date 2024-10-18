@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLOutput;
+import java.util.List;
 import java.util.Properties;
 
 @SpringBootApplication
@@ -25,9 +26,9 @@ public class D387SampleCodeApplication {
 //		catch (Exception e) {
 //			e.printStackTrace();
 //		}
-
-		WelcomeMessage language = new WelcomeMessage();
-		language.start();
+		WelcomeMessage welcomeMessage = new WelcomeMessage();
+		welcomeMessage.run();
+		;
 	}
 
 }

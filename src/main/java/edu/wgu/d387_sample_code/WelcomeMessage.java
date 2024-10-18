@@ -1,49 +1,72 @@
 package edu.wgu.d387_sample_code;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.InputStream;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.ExecutorService;
 
-public class WelcomeMessage extends Thread {
+import static java.util.concurrent.Executors.newFixedThreadPool;
 
-    //returns welcome message, STORE THIS TO CALL AS THREAD
-    public String getWelcomeMessage() {
-        Properties prop = new Properties();
-        try {
-            InputStream streamFr = new ClassPathResource("translation_fr_CA.properties").getInputStream();
-            prop.load(streamFr);
-            return prop.getProperty("welcome");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-//thread below that prints welcome message
+public class WelcomeMessage implements Runnable {
+    static ExecutorService messageExecutor=newFixedThreadPool(5);
+
+    //get welcome messages and store them into string array
+
+    List<String>welcomeArray = new ArrayList<>(4);
     @Override
     public void run() {
 
-        Properties properties = new Properties();
-        try {
-            Thread.sleep(1000);
-            InputStream streamFr = new ClassPathResource("translation_fr_CA.properties").getInputStream();
-            properties.load(streamFr);
-            System.out.println(properties.getProperty("welcome"));
 
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        Properties properties=new Properties();
+        messageExecutor.execute(()-> {
 
-        try {
-            InputStream streamEn = new ClassPathResource("translation_en_US.properties").getInputStream();
-            properties.load(streamEn);
-            System.out.println(properties.getProperty("welcome"));
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+            try {
+                InputStream streamEn = new ClassPathResource("translation_en_US.properties").getInputStream();
+                properties.load(streamEn);
+                welcomeArray.add(properties.getProperty("welcome"));
+                streamEn.close();
+                streamEn = new ClassPathResource("translation_en_US.properties").getInputStream();
+                properties.load(streamEn);
+                welcomeArray.add(properties.getProperty("welcome"));
+                streamEn.close();
+                InputStream streamFr = new ClassPathResource("translation_fr_CA.properties").getInputStream();
+                properties.load(streamFr);
+                welcomeArray.add(properties.getProperty("welcome"));
+                streamFr.close();
+                streamFr = new ClassPathResource("translation_fr_CA.properties").getInputStream();
+                properties.load(streamFr);
+                welcomeArray.add(properties.getProperty("welcome"));
+                streamFr.close();
+//                System.out.println(properties.getProperty("welcome"));
+                return welcomeArray;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+//        messageExecutor.execute(()-> {
+//            try {
+//                InputStream stream = new ClassPathResource("translation_fr_CA.properties").getInputStream();
+//                properties.load(stream);
+//                welcomeArray.add(properties.getProperty("welcome"));
+//                stream = new ClassPathResource("translation_fr_CA.properties").getInputStream();
+//                properties.load(stream);
+//                welcomeArray.add(properties.getProperty("welcome"));
+//                System.out.println(welcomeArray);
+//
+//
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        });
     }
+
+
+
+
+
+
 }
