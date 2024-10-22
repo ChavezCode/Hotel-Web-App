@@ -84,8 +84,11 @@
                   <img src="assets/images/intro_room.jpg" alt="Intro Gallery Room Sample Pictures">
                 </td>
                 <td>
-                  <strong>Room #: {{room.roomNumber}}</strong><br/>
-                  <strong>Price: ${{room.price}}</strong>
+                  <strong>Room #: {{room.roomNumber}}</strong><br>
+<!--                  adding three different prices. US dollar ($), Canadian dollar (C$), and the Euro(€)-->
+                  <strong>Price: ${{room.price}}</strong><br>
+                  <strong>Price: C${{room.price}}</strong><br>
+                  <strong>Price: €{{room.price}}</strong>
                 </td>
                 <td>
                   <button type="submit" class="btn btn-primary" (click)="reserveRoom(room.id)">Reserve</button>
