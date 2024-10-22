@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {HttpClient, HttpResponse,HttpHeaders} from "@angular/common/http";
-import { Observable } from 'rxjs';
+import {observable, Observable} from 'rxjs';
 import {map} from "rxjs/operators";
 
 
@@ -21,6 +21,8 @@ export class AppComponent implements OnInit{
 
   private getUrl:string = this.baseURL + '/room/reservation/v1/';
   private postUrl:string = this.baseURL + '/room/reservation/v1';
+
+
   public submitted!:boolean;
   roomsearch! : FormGroup;
   rooms! : Room[];
@@ -28,11 +30,23 @@ export class AppComponent implements OnInit{
   currentCheckInVal!:string;
   currentCheckOutVal!:string;
 
+  // initiate a welcome array of type string
+  welcome: string[] = [];
+  // create a method to link to through controller in backend
+  getWelcomeMessage(): Observable<string[]> {
+    return this.httpClient.get<string[]>(this.baseURL + "/api/welcome");
+  }
+
     ngOnInit(){
       this.roomsearch= new FormGroup({
         checkin: new FormControl(' '),
         checkout: new FormControl(' ')
       });
+
+      // subscribe to the getWelcome Method
+      this.getWelcomeMessage().subscribe((data) => {
+        this.welcome = data;
+      })
 
  //     this.rooms=ROOMS;
 

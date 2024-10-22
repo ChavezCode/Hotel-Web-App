@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:8080")
+@CrossOrigin("http://localhost:4200")
 @RestController
-@RequestMapping("/jorge")
+@RequestMapping("/api/")
 public class WelcomeController {
     private WelcomeMessage welcomeMessage;
 
@@ -17,7 +17,7 @@ public class WelcomeController {
         this.welcomeMessage = welcomeMessage;
     }
 
-    @GetMapping
+    @GetMapping("/welcome")
     public List<String> getWelcomeMessage() {
         return welcomeMessage.getWelcomeArray();
     }
