@@ -170,7 +170,7 @@ header .fullheight .hgroup {
 }
 
 /* line 12, ../../../components/sass/modules/_intro.scss */
-header .fullheight .hgroup h1 {
+header .fullheight .hgroup h1{
   color: #FFFFFF;
   font-size: 5em;
   font-weight: 800;
@@ -390,7 +390,7 @@ header #nav .navbar ul li a.active {
 }
 
 /* line 13, ../../../components/sass/modules/_welcome.scss */
-#welcome h1 {
+#welcome h1 h4{
   font-weight: normal;
   line-height: 100%;
   color: #a24a19;
@@ -571,7 +571,7 @@ header #nav .navbar ul li a.active {
 }
 
 /* line 21, ../../../components/sass/modules/_events.scss */
-#events .event .content h2 {
+#events .event .content h2 , h4{
   color: #FFFFFF;
   line-height: 1em;
 }
@@ -582,7 +582,7 @@ header #nav .navbar ul li a.active {
 }
 
 /* line 3, ../../../components/sass/modules/_dining.scss */
-#dining h1, #dining h2 {
+#dining h1, #dining h2{
   color: #DF4848;
   padding: 10px 0;
 }
