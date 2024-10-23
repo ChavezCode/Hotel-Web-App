@@ -28,20 +28,19 @@ public class TimeConversion{
         ZonedDateTime zonedDateTime=localDateTime.atZone(zoneId);
         ZonedDateTime zonedDateTimeEastern=zonedDateTime.withZoneSameInstant(easternTime);
         LocalDateTime localDateTimeEastern=zonedDateTimeEastern.toLocalDateTime();
-//        System.out.println("Eastern time "+localDateTimeEastern.toString());
 
+        //      Formatting the times to hour : minute and am pm of day
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
         String text = localDateTimeEastern.format(formatter);
         timeZones.add(text);
+
         ZonedDateTime zonedDateTimeMountain=zonedDateTime.withZoneSameInstant(mountainTime);
         LocalDateTime localDateTimeMountain=zonedDateTimeMountain.toLocalDateTime();
-
         text = localDateTimeMountain.format(formatter);
         timeZones.add(text);
-//        System.out.println("Mountain time "+localDateTimeMountain.toString());
+
         ZonedDateTime zonedDateTimeUtc=zonedDateTime.withZoneSameInstant(zoneUtc);
         LocalDateTime localDateTimeUtc=zonedDateTimeUtc.toLocalDateTime();
-//        System.out.println("Utc time "+localDateTimeUtc.toString());
         text = localDateTimeUtc.format(formatter);
         timeZones.add(text);
         return timeZones;

@@ -32,10 +32,18 @@ export class AppComponent implements OnInit{
 
   // initiate a welcome array of type string
   welcome: string[] = [];
+//   initiate time
+  time: string[] = [];
   // create a method to link to through controller in backend
   getWelcomeMessage(): Observable<string[]> {
-    return this.httpClient.get<string[]>(this.baseURL + "/api/welcome");
-  }
+    return this.httpClient.get<string[]>(this.baseURL + "/api/welcome")};
+
+
+  getTime(): Observable<string[]> {
+    return this.httpClient.get<string[]>(this.baseURL + "/api/welcome")};
+
+
+
 
     ngOnInit(){
       this.roomsearch= new FormGroup({
@@ -46,6 +54,11 @@ export class AppComponent implements OnInit{
       // subscribe to the getWelcome Method
       this.getWelcomeMessage().subscribe((data) => {
         this.welcome = data;
+      })
+
+
+      this.getTime().subscribe((data) => {
+        this.time = data;
       })
 
  //     this.rooms=ROOMS;
