@@ -21,10 +21,11 @@ public class D387SampleCodeApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(D387SampleCodeApplication.class, args);
-		WelcomeMessage welcomeMessage = new WelcomeMessage();
-		welcomeMessage.run();
+//		WelcomeMessage welcomeMessage = new WelcomeMessage();
+//		welcomeMessage.run();
 
-		TimeZone timeZone = new TimeZone();
+		TimeConversion timeConversion = new TimeConversion();
+		timeConversion.run();
 
 
 	}
