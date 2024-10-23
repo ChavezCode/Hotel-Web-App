@@ -40,7 +40,7 @@ export class AppComponent implements OnInit{
 
 
   getTime(): Observable<string[]> {
-    return this.httpClient.get<string[]>(this.baseURL + "/api/welcome")};
+    return this.httpClient.get<string[]>(this.baseURL + "/api/time")};
 
 
 
@@ -56,9 +56,9 @@ export class AppComponent implements OnInit{
         this.welcome = data;
       })
 
-
-      this.getTime().subscribe((data) => {
-        this.time = data;
+      //subscribe to getTime method
+      this.getTime().subscribe((hr) => {
+        this.time = hr;
       })
 
  //     this.rooms=ROOMS;

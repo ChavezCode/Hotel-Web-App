@@ -20,7 +20,7 @@ public class TimeController {
         this.timeConversion = timeConversion;
     }
 
-    @GetMapping("/welcome")
+    @GetMapping("/time")
     public List<String> getTime() {
         return timeConversion.getTimeConversion();
     }
