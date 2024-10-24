@@ -239,7 +239,18 @@ header #nav .navbar:after {
   display: block;
   clear: both;
 }
-
+/*Styling to the Landon hotel live presentation times*/
+.navbar {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.time {
+  box-sizing: border-box;
+  color: white;
+  font-weight: 600;
+  background: #DF4848;
+  margin: 10px;
+}
 /* line 9, ../../../components/sass/modules/_nav.scss */
 header #nav .navbar .brand {
   -moz-box-sizing: border-box;

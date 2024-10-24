@@ -24,10 +24,11 @@
        style="display: block; top: auto; left: auto; bottom: auto; right: auto; position: relative; margin: 0 auto auto; box-sizing: content-box; width: 100%; min-height: 44px; height: auto; padding-top: 0; padding-bottom: 0;">
     <nav id="nav" style="position: relative; top: 0; left: 0; bottom: auto; right: auto; width: 100%;">
       <div class="navbar">
+<!--        live stream time display-->
 <!--      if time array is not empty-->
         <div *ngIf="time.length > 0">
 <!--          display the items in each array by accessing the index-->
-          <div class="">Join us for a live session at {{ time[0] }} Mountain Time, {{ time[1] }} Eastern Time, {{ time[2] }} Coordinated Universal Time.</div>
+          <div class="time">Join us for a live session at {{ time[0] }} Mountain Time, {{ time[1] }} Eastern Time, and {{ time[2] }} Coordinated Universal Time.</div>
         </div>
 
         <div class="brand"><a href="/#welcome">Landon <span>Hotel</span></a></div>
