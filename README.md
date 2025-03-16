@@ -1,2 +1,6 @@
 This project involved modifying a Spring application with a Java back-end and an Angular front-end to meet new requirements for a hotel reservation system. The goal was to add features such as multithreaded language translation, displaying messages in different time zones, and showing prices in multiple currencies. I worked on internationalization by creating resource bundles for English and French, and displayed a welcome message in both languages using separate threads. Additionally, I modified the front-end to display reservation prices in U.S. dollars, Canadian dollars, and euros, and wrote a Java method to convert and display times for an online live presentation across Eastern, Mountain, and Coordinated Universal Time (UTC) zones.
 
+
+
+https://github.com/user-attachments/assets/6eacf7d3-b5e5-44fa-9154-ca3c0e6cd2b8
+
